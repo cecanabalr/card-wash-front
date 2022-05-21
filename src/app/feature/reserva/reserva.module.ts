@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.component';
 import {ReservaRoutingModule} from './reserva-routing.module';
@@ -22,7 +22,6 @@ import { ListarReservaPlacaComponent } from './components/listar-reserva-placa/l
     ReservaRoutingModule,
     SharedModule,
   ],
-  providers: [ReservaService, AgendaService, ServicioService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  providers: [ReservaService, AgendaService, ServicioService]
 })
 export class ReservaModule { }

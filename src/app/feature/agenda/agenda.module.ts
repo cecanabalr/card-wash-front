@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import {AgendaComponent} from './components/agenda/agenda.component';
 import {CrearAgendaComponent} from './components/crear-agenda/crear-agenda.component';
@@ -20,6 +20,5 @@ import { ListarAgendaComponent } from './components/listar-agenda/listar-agenda.
     SharedModule
   ],
   providers: [AgendaService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AgendaModule { }

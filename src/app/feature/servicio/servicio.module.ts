@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { ServicioComponent } from './components/servicio/servicio.component';
 import {ServicioRoutingModule} from './servicio-routing.module';
@@ -19,7 +19,6 @@ import { ListarServiciosComponent } from './components/listar-servicios/listar-s
     ServicioRoutingModule,
     SharedModule
   ],
-  providers: [ServicioService],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  providers: [ServicioService]
 })
 export class ServicioModule { }
