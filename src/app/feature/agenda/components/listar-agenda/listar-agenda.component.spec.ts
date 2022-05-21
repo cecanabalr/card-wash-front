@@ -4,6 +4,7 @@ import { ListarAgendaComponent } from './listar-agenda.component';
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {AgendaService} from "@agenda/shared/service/agenda.service";
 import {HttpService} from "@core-service/http.service";
 import {SharedModule} from "@shared/shared.module";
@@ -19,6 +20,8 @@ describe('ListarAgendaComponent', () => {
         CommonModule,
         HttpClientModule,
         RouterTestingModule,
+        ReactiveFormsModule,
+        FormsModule,
         SharedModule
       ],
       providers: [AgendaService, HttpService],
