@@ -19,6 +19,6 @@ import { ListarAgendaComponent } from './components/listar-agenda/listar-agenda.
     AgendaRoutingModule,
     SharedModule
   ],
-  providers: [AgendaService],
+  providers: [AgendaService]
 })
 export class AgendaModule { }
