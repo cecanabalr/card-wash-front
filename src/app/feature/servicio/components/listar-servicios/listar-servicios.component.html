@@ -1,0 +1,32 @@
+<div class="card container">
+  <div class="card-body">
+    <div class="table-responsive-md">
+      <a class="btn btn-sm btn-primary"
+         (click)="prevPage()">
+        Anteriores
+      </a>
+      &nbsp;
+      <a class="btn btn-sm btn-primary"
+         (click)="nextPage()"
+         *ngIf="!((servicios | filtroServicios:page).length === 0)">
+        Siguientes
+      </a>
+      <table class="table">
+        <thead>
+        <tr>
+          <th># ID</th>
+          <th>NOMBRE</th>
+          <th>VALOR</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let servicio of  servicios | filtroServicios:page ">
+          <td>{{servicio.id}}</td>
+          <td>{{servicio.nombre}}</td>
+          <td>{{servicio.valor}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

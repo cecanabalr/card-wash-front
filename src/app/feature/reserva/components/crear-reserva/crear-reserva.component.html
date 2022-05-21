@@ -1,0 +1,26 @@
+<div class="card container">
+  <div class="card-body">
+    <form [formGroup]="reservaForm" (ngSubmit)="enviar()">
+      <div class="mb-3">
+        <label for="nombreReserva" class="form-label">Nombre</label>
+        <input validar type="text" class="form-control" id="nombreReserva"
+               formControlName="nombre">
+      </div>
+      <div class="mb-3">
+        <label for="reservaPlaca" class="form-label">Placa</label>
+        <input validar type="text" class="form-control" id="reservaPlaca" formControlName="placa">
+      </div>
+      <div class="mb-3">
+          <label class="form-label">Seleccionar servicio</label>
+          <app-listar-servicio-reserva (servicioEvento)="obtenerServicio($event)"></app-listar-servicio-reserva>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Buscar disponibilidad de agenda por fecha: </label>
+        <input type="date" class="form-control" #txtSearch (change)="onSearchDate(txtSearch.value)">
+        <app-listar-agenda-reserva  (agendaEvento)="obtenerAgenda($event)"></app-listar-agenda-reserva>
+      </div>
+      <button type="submit" class="btn btn-primary">Reservar</button>
+    </form>
+
+  </div>
+</div>

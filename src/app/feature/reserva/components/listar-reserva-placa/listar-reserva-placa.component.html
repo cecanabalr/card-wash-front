@@ -1,0 +1,40 @@
+<div class="card container">
+  <div class="card-body">
+    <div class="table-responsive-md">
+      <a class="btn btn-sm btn-primary"
+         (click)="prevPage()">
+        Anteriores
+      </a>
+      &nbsp;
+      <a class="btn btn-sm btn-primary"
+         (click)="nextPage()"
+         *ngIf="!((reservas | filtroReserva:page).length === 0)">
+        Siguientes
+      </a>
+      <table class="table">
+        <thead>
+        <tr>
+          <th>PLACA</th>
+          <th>NOMBRE</th>
+          <th>FECHA CREACIÓN</th>
+          <th>FECHA INICIO</th>
+          <th>FECHA FIN</th>
+          <th>NOMBRE DEL SERVICIO</th>
+          <th>TOTAL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let reserva of  reservas | filtroReserva:page ">
+          <td>{{reserva.placa}}</td>
+          <td>{{reserva.nombre}}</td>
+          <td>{{reserva.fechaCreacion | date:'medium'}}</td>
+          <td>{{reserva.agenda.fechaInicio | date:'medium'}}</td>
+          <td>{{reserva.agenda.fechaFin | date:'medium' }}</td>
+          <td>{{reserva.servicio.nombre}}</td>
+          <td>{{reserva.total}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

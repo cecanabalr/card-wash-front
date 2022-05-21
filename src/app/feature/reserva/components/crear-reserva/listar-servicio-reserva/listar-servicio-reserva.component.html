@@ -1,0 +1,4 @@
+<select [(ngModel)]="opcionSeleccionado" class="form-select" (change)="obtenerServicio()">
+  <option *ngFor="let servicio of servicios" [value]="servicio.id">
+    {{servicio.nombre}} - {{servicio.valor}}</option>
+</select>
