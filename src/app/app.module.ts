@@ -5,14 +5,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from '@home/home.component';
 import { ProductoModule } from '@producto/producto.module';
-import {ServicioModule} from './feature/servicio/servicio.module';
-import {AgendaModule} from './feature/agenda/agenda.module';
+import {ServicioModule} from '@servicio/servicio.module';
+import {AgendaModule} from '@agenda/agenda.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 
 
 import { registerLocaleData } from '@angular/common';
 import localeEsCo from '@angular/common/locales/es';
+import {ReservaModule} from '@reserva/reserva.module';
 
 registerLocaleData(localeEsCo, 'es');
 
@@ -29,6 +30,7 @@ registerLocaleData(localeEsCo, 'es');
     ProductoModule,
     ServicioModule,
     AgendaModule,
+    ReservaModule,
     CoreModule
   ],
   providers: [CookieService, {provide: LOCALE_ID, useValue: 'es'}],

@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input, } from '@angular/core';
 import {AgendaService} from '@agenda/shared/service/agenda.service';
 import {Agenda} from '@agenda/shared/model/agenda';
 
