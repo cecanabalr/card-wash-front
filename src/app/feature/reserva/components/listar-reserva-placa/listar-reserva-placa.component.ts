@@ -11,18 +11,30 @@ export class ListarReservaPlacaComponent implements OnInit {
   reservas: Reserva[] =  [];
   placa = '';
   page = 0;
+  search = '';
   constructor(protected reservaService: ReservaService, protected activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(params => {
       this.placa = params.get('placa');
     });
-    this.buscarPorPlaca();
+
+    if (this.placa === null){
+      this.buscarTodasLasReservas();
+    }else{
+      this.buscarPorPlaca();
+    }
   }
   buscarPorPlaca(){
     this.reservaService.buscarPorFecha(this.placa).subscribe( data =>
-      this.reservas = data
-    );
+        this.reservas = data);
+
+  }
+  buscarTodasLasReservas(){
+    this.reservaService.buscarTodasLasReservas().subscribe( data =>{
+      console.log(data);
+      this.reservas = data;
+    });
   }
 
   nextPage(){
@@ -32,5 +44,9 @@ export class ListarReservaPlacaComponent implements OnInit {
     if (this.page > 0) {
       this.page -= 5;
     }
+  }
+
+  onSearchReserva(placa: string){
+   this.search = placa;
   }
 }

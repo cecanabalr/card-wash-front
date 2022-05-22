@@ -18,6 +18,10 @@ const routes: Routes = [
       {
         path: 'listar/:placa',
         component: ListarReservaPlacaComponent
+      },
+      {
+        path: 'listar',
+        component: ListarReservaPlacaComponent
       }
     ]
   }

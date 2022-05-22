@@ -1,6 +1,11 @@
 <div class="card container">
   <div class="card-body">
-    <div class="table-responsive-md">
+
+      <input type="text" class="form-control mt-2 mb-3"
+      placeholder="Buscar por placa"
+      #txtSearch
+      (keyup)="onSearchReserva(txtSearch.value)"
+      *ngIf="placa === null"/>
       <a class="btn btn-sm btn-primary"
          (click)="prevPage()">
         Anteriores
@@ -8,10 +13,10 @@
       &nbsp;
       <a class="btn btn-sm btn-primary"
          (click)="nextPage()"
-         *ngIf="!((reservas | filtroReserva:page).length === 0)">
+         *ngIf="!((reservas | filtroReserva:page:search).length === 0)">
         Siguientes
       </a>
-      <table class="table">
+      <table class="table  table-responsive">
         <thead>
         <tr>
           <th>PLACA</th>
@@ -24,7 +29,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let reserva of  reservas | filtroReserva:page ">
+        <tr *ngFor="let reserva of  reservas | filtroReserva:page:search ">
           <td>{{reserva.placa}}</td>
           <td>{{reserva.nombre}}</td>
           <td>{{reserva.fechaCreacion | date:'medium'}}</td>
@@ -35,6 +40,5 @@
         </tr>
         </tbody>
       </table>
-    </div>
   </div>
 </div>

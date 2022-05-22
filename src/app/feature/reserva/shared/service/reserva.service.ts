@@ -19,4 +19,8 @@ export class ReservaService {
   public buscarPorFecha(placa: string): Observable<Reserva[]> {
     return this.http.doGet<Reserva[]>(`${environment.endpoint}/reservas/${placa}`, this.http.optsName('buscarPorPlaca'));
   }
+
+  public buscarTodasLasReservas(): Observable<Reserva[]> {
+    return this.http.doGet<Reserva[]>(`${environment.endpoint}/reservas`, this.http.optsName('buscar reservas'));
+  }
 }

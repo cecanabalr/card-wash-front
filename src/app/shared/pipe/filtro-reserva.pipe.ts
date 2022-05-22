@@ -6,8 +6,12 @@ import {Reserva} from "@reserva/shared/model/reserva";
 })
 export class FiltroReservaPipe implements PipeTransform {
 
-  transform(reservas: Reserva[], page: number = 0): Reserva[] {
-    return reservas.slice( page, page + 5).reverse();
+  transform(reservas: Reserva[], page: number = 0, search: string): Reserva[] {
+    if(search.length === 0){
+      return reservas.slice( page, page + 5).reverse();
+    }
+    const  filterReserva = reservas.filter(reserva => reserva.placa.includes(search));
+    return filterReserva.slice( page, page + 5).reverse();
   }
 
 }
