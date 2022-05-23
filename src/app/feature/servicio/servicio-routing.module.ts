@@ -4,7 +4,7 @@ import {ServicioComponent} from './components/servicio/servicio.component';
 import {CrearServicioComponent} from './components/crear-servicio/crear-servicio.component';
 import {
   ListarServiciosComponent
-} from "@servicio/components/listar-servicios/listar-servicios.component";
+} from '@servicio/components/listar-servicios/listar-servicios.component';
 
 
 const routes: Routes = [

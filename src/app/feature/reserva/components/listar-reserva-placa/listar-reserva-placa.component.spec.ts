@@ -4,7 +4,6 @@ import { ListarReservaPlacaComponent } from './listar-reserva-placa.component';
 import {CommonModule} from "@angular/common";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpService} from "@core-service/http.service";
 import {ReservaService} from "@reserva/shared/service/reserva.service";
 import {SharedModule} from "@shared/shared.module";
@@ -20,8 +19,6 @@ describe('ListarReservaPlacaComponent', () => {
         CommonModule,
         HttpClientModule,
         RouterTestingModule,
-        ReactiveFormsModule,
-        FormsModule,
         SharedModule
       ],
       providers: [ReservaService, HttpService],

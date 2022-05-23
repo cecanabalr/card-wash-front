@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {HttpService} from "@core-service/http.service";
 import {AgendaService} from "@agenda/shared/service/agenda.service";
 import {SharedModule} from "@shared/shared.module";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('ListarAgendaReservaComponent', () => {
   let component: ListarAgendaReservaComponent;
@@ -17,6 +18,7 @@ describe('ListarAgendaReservaComponent', () => {
       imports: [
         CommonModule,
         HttpClientModule,
+        RouterTestingModule,
         SharedModule
       ],
       providers: [AgendaService, HttpService],
