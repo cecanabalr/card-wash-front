@@ -3,11 +3,11 @@ import { of } from 'rxjs';
 
 import { ListarProductoComponent } from './listar-producto.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ProductoService } from '../../shared/service/producto.service';
 import { Producto } from '../../shared/model/producto';
 import { HttpService } from 'src/app/core/services/http.service';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('ListarProductoComponent', () => {
   let component: ListarProductoComponent;
@@ -20,7 +20,7 @@ describe('ListarProductoComponent', () => {
       declarations: [ListarProductoComponent],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterTestingModule
       ],
       providers: [ProductoService, HttpService]

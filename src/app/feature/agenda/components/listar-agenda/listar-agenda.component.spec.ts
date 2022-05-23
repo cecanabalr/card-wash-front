@@ -2,11 +2,11 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListarAgendaComponent } from './listar-agenda.component';
 import {CommonModule} from "@angular/common";
-import {HttpClientModule} from "@angular/common/http";
 import {RouterTestingModule} from "@angular/router/testing";
 import {AgendaService} from "@agenda/shared/service/agenda.service";
 import {HttpService} from "@core-service/http.service";
 import {SharedModule} from "../../../../shared/shared.module";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('ListarAgendaComponent', () => {
   let component: ListarAgendaComponent;
@@ -17,7 +17,7 @@ describe('ListarAgendaComponent', () => {
       declarations: [ ListarAgendaComponent ],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterTestingModule,
         SharedModule
       ],

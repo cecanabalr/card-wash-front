@@ -4,7 +4,7 @@ import {
 } from '@angular/router/testing';
 import { BorrarProductoComponent } from './borrar-producto.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('BorrarProductoComponent', () => {
   let component: BorrarProductoComponent;
@@ -15,7 +15,7 @@ describe('BorrarProductoComponent', () => {
       declarations: [ BorrarProductoComponent ],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterTestingModule
       ],
     })
