@@ -8,7 +8,6 @@ import {HttpService} from '@core-service/http.service';
 import {ReservaService} from '@reserva/shared/service/reserva.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {of} from 'rxjs';
-import {ListarReservaPlacaComponent} from '@reserva/components/listar-reserva-placa/listar-reserva-placa.component';
 
 describe('CrearReservaComponent', () => {
   let component: CrearReservaComponent;
@@ -21,7 +20,7 @@ describe('CrearReservaComponent', () => {
         CommonModule,
         HttpClientTestingModule,
         RouterTestingModule.withRoutes([
-          { path: 'reserva/listar/AAA123', component: ListarReservaPlacaComponent}
+          { path: 'reserva/listar/AAA123', component: CrearReservaComponent}
         ]),
         ReactiveFormsModule,
         FormsModule
@@ -47,6 +46,18 @@ describe('CrearReservaComponent', () => {
 
   it('formulario es invalido cuando esta vacio', () => {
     expect(component.reservaForm.valid).toBeFalsy();
+  });
+
+  it('Registrando producto', () => {
+    expect(component.reservaForm.valid).toBeFalsy();
+    component.reservaForm.controls.nombre.setValue('carlos');
+    component.reservaForm.controls.placa.setValue('AAA123');
+    expect(component.reservaForm.valid).toBeTruthy();
+
+    component.enviar();
+
+    // Aca validamos el resultado esperado al enviar la petición
+    // TODO adicionar expect
   });
 
 });
