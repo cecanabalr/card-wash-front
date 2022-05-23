@@ -16,7 +16,10 @@
          *ngIf="!((reservas | filtroReserva:page:search).length === 0)">
         Siguientes
       </a>
-      <table class="table  table-responsive">
+
+      <p class="mt-3" id="mydesc">Listado de reservas</p>
+
+      <table class="table  table-responsive" aria-describedby="mydesc">
         <thead>
         <tr>
           <th>PLACA</th>

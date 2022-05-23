@@ -9,7 +9,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { TrackByPipe } from './pipe/track-by.pipe';
 import { FiltroAgendaPipe } from './pipe/filtro-agenda.pipe';
 import { FiltroReservaPipe } from './pipe/filtro-reserva.pipe';
-import {FiltroServiciosPipe} from "@shared/pipe/filtro-servicios.pipe";
+import {FiltroServiciosPipe} from '@shared/pipe/filtro-servicios.pipe';
 
 @NgModule({
   declarations: [

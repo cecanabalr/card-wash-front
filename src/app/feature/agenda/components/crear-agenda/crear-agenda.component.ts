@@ -25,8 +25,8 @@ export class CrearAgendaComponent implements OnInit {
   private construirFormularioAgenda() {
     this.agendaForm = new FormGroup({
       id: new FormControl(0),
-      fechaInicio: new FormControl('', [Validators.required]),
-      fechaFin: new FormControl('', [Validators.required])
+      fechaInicio: new FormControl(null, [Validators.required]),
+      fechaFin: new FormControl(null, [Validators.required])
     });
   }
 

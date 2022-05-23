@@ -24,8 +24,8 @@ export class CrearServicioComponent implements OnInit {
   private construirFormularioServicio() {
     this.servicioForm = new FormGroup({
       id: new FormControl(0),
-      nombre: new FormControl('', [Validators.required]),
-      valor: new FormControl('', [Validators.required])
+      nombre: new FormControl(null, [Validators.required]),
+      valor: new FormControl(null, [Validators.required])
     });
   }
 
