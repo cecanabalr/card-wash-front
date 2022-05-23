@@ -48,4 +48,16 @@ describe('CrearServicioComponent', () => {
     expect(component.servicioForm.valid).toBeFalsy();
   });
 
+  it('Registrando producto', () => {
+    expect(component.servicioForm.valid).toBeFalsy();
+    component.servicioForm.controls.id.setValue(1);
+    component.servicioForm.controls.nombre.setValue('lavado');
+    component.servicioForm.controls.valor.setValue(20000);
+    expect(component.servicioForm.valid).toBeTruthy();
+
+    component.enviar();
+
+    // Aca validamos el resultado esperado al enviar la petición
+    // TODO adicionar expect
+  });
 });
