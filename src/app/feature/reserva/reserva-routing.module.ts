@@ -16,11 +16,11 @@ const routes: Routes = [
         component: CrearReservaComponent
       },
       {
-        path: 'listar/:placa',
+        path: 'listar',
         component: ListarReservaPlacaComponent
       },
       {
-        path: 'listar',
+        path: 'listar/:placa',
         component: ListarReservaPlacaComponent
       }
     ]

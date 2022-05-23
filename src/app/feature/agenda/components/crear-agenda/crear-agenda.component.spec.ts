@@ -8,7 +8,6 @@ import {HttpService} from '@core-service/http.service';
 import {AgendaService} from '@agenda/shared/service/agenda.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {of} from 'rxjs';
-
 describe('CrearAgendaComponent', () => {
   let component: CrearAgendaComponent;
   let fixture: ComponentFixture<CrearAgendaComponent>;
@@ -20,7 +19,9 @@ describe('CrearAgendaComponent', () => {
       imports: [
         CommonModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'agenda/listar', component: CrearAgendaComponent}
+        ]),
         ReactiveFormsModule,
         FormsModule
       ],
@@ -46,13 +47,5 @@ describe('CrearAgendaComponent', () => {
   it('formulario es invalido cuando esta vacio', () => {
     expect(component.agendaForm.valid).toBeFalsy();
   });
-  it('Registrando servicio', () => {
-    expect(component.agendaForm.valid).toBeFalsy();
-    component.agendaForm.controls.fechaInicio.setValue('2022-05-20');
-    component.agendaForm.controls.fechaFin.setValue('2022-05-20');
-    expect(component.agendaForm.valid).toBeTruthy();
 
-    component.enviar();
-
-  });
 });

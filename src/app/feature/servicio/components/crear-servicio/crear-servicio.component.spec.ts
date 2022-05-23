@@ -20,7 +20,9 @@ describe('CrearServicioComponent', () => {
       imports: [
         CommonModule,
         HttpClientTestingModule,
-        RouterTestingModule,
+        RouterTestingModule.withRoutes([
+          { path: 'servicio/listar', component: CrearServicioComponent}
+        ]),
         ReactiveFormsModule,
         FormsModule
       ],
@@ -45,14 +47,5 @@ describe('CrearServicioComponent', () => {
   it('formulario es invalido cuando esta vacio', () => {
     expect(component.servicioForm.valid).toBeFalsy();
   });
-  it('Registrando servicio', () => {
-    expect(component.servicioForm.valid).toBeFalsy();
-    component.servicioForm.controls.id.setValue(1);
-    component.servicioForm.controls.nombre.setValue('lavado test');
-    component.servicioForm.controls.valor.setValue(20000);
-    expect(component.servicioForm.valid).toBeTruthy();
 
-    component.enviar();
-
-  });
 });
