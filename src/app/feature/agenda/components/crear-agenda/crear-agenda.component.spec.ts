@@ -32,6 +32,7 @@ describe('CrearAgendaComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CrearAgendaComponent);
     component = fixture.componentInstance;
+    agendaService = TestBed.inject(AgendaService);
     spyOn(agendaService, 'guardar').and.returnValue(
       of(true)
     );
