@@ -18,7 +18,7 @@ export class CrearServicioComponent implements OnInit {
 
   enviar(){
     this.servicioService.guardar(this.servicioForm.value).subscribe(() => {
-      this.route.navigate(['/servicio/listar']).then();
+      this.route.navigate(['/servicio/listar']);
     });
   }
   private construirFormularioServicio() {

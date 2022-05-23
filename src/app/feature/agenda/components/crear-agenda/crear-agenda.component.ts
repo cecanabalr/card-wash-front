@@ -18,7 +18,7 @@ export class CrearAgendaComponent implements OnInit {
 
   enviar(){
      this.agendaServicio.guardar(this.agendaForm.value).subscribe(() => {
-       this.route.navigate(['agenda/listar']).then();
+       this.route.navigate(['agenda/listar']);
      });
   }
 
