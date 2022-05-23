@@ -48,4 +48,16 @@ describe('CrearAgendaComponent', () => {
     expect(component.agendaForm.valid).toBeFalsy();
   });
 
+  it('Registrando agenda', () => {
+    expect(component.agendaForm.valid).toBeFalsy();
+    component.agendaForm.controls.id.setValue(0);
+    component.agendaForm.controls.fechaInicio.setValue('2022-05-20');
+    component.agendaForm.controls.fechaFin.setValue('2022-05-20');
+    expect(component.agendaForm.valid).toBeTruthy();
+
+    component.enviar();
+
+    // Aca validamos el resultado esperado al enviar la petición
+    // TODO adicionar expect
+  });
 });
