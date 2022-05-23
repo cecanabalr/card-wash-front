@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '@core-service/http.service';
 import { environment } from 'src/environments/environment';
 import {Servicio} from '../model/servicio';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class ServicioService {
   constructor(protected http: HttpService) { }
 
   public guardar(servicio: Servicio) {
-   return this.http.doPost<Servicio, number>(`${environment.endpoint}/servicio`, servicio,
+   return this.http.doPost<Servicio, boolean>(`${environment.endpoint}/servicio`, servicio,
       this.http.optsName('crear'));
   }
   public listarServicios(): Observable<Servicio[]>{

@@ -12,7 +12,7 @@ export class ReservaService {
   constructor(protected http: HttpService) { }
 
   public guardar(reserva: Reserva) {
-    return this.http.doPost<Reserva, number>(`${environment.endpoint}/reserva`, reserva,
+    return this.http.doPost<Reserva, boolean>(`${environment.endpoint}/reserva`, reserva,
       this.http.optsName('crear'));
   }
 

@@ -14,7 +14,7 @@ export class AgendaService {
 
   public guardar(agenda: Agenda) {
 
-    return this.http.doPost<Agenda, string>(`${environment.endpoint}/agenda`, agenda,
+    return this.http.doPost<Agenda, boolean>(`${environment.endpoint}/agenda`, agenda,
       this.http.optsName('crear'));
   }
 
