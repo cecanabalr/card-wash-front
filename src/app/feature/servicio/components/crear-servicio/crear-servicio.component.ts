@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {ServicioService} from '@servicio/shared/service/servicio.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-crear-servicio',
@@ -18,7 +18,7 @@ export class CrearServicioComponent implements OnInit {
 
   enviar(){
     this.servicioService.guardar(this.servicioForm.value).subscribe(() => {
-      this.route.navigate(['/servicio/listar']);
+      this.route.navigate(['/servicio/listar']).then();
     });
   }
   private construirFormularioServicio() {

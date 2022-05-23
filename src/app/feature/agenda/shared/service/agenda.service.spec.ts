@@ -40,6 +40,20 @@ describe('AgendaService', () => {
     req.flush(dummyAgendas);
   });
 
+  it('deberia listar agendas', () => {
+    const dummyAgendas = [
+      new Agenda(1, '2022-05-20', '2022-05-20'),
+      new Agenda(1, '2022-05-20', '2022-05-20')
+    ];
+    service.buscarPorFecha('2022-05-20').subscribe(servico => {
+      expect(servico.length).toBe(2);
+      expect(servico).toEqual(dummyAgendas);
+    });
+    const req = httpMock.expectOne(`${apiEndpointAgendaConsulta}/2022-05-20`);
+    expect(req.request.method).toBe('GET');
+    req.flush(dummyAgendas);
+  });
+
   it('deberia crear un agenda', () => {
     const dummyAgenda = new Agenda(1, '2022-05-20', '2022-05-20');
     service.guardar(dummyAgenda).subscribe((respuesta) => {

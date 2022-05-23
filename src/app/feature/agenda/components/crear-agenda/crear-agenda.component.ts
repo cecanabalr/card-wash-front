@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AgendaService} from "@agenda/shared/service/agenda.service";
-import {Router} from "@angular/router";
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {AgendaService} from '@agenda/shared/service/agenda.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-crear-agenda',
@@ -18,7 +18,7 @@ export class CrearAgendaComponent implements OnInit {
 
   enviar(){
      this.agendaServicio.guardar(this.agendaForm.value).subscribe(() => {
-       this.route.navigate(['agenda/listar']);
+       this.route.navigate(['agenda/listar']).then();
      });
   }
 
