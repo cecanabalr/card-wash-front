@@ -17,7 +17,7 @@
       <div class="mb-3">
         <label class="form-label">Buscar disponibilidad de agenda por fecha: </label>
         <input type="date" class="form-control" #txtSearch (change)="onSearchDate(txtSearch.value)">
-        <app-listar-agenda-reserva  (agendaEvento)="obtenerAgenda($event)"></app-listar-agenda-reserva>
+        <app-listar-agenda-reserva [childMessage]="fecha"  (agendaEvento)="obtenerAgenda($event)"></app-listar-agenda-reserva>
       </div>
       <button type="submit" class="btn btn-primary">Reservar</button>
     </form>

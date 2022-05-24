@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpService} from "@core-service/http.service";
-import {environment} from "src/environments/environment";
-import {Reserva} from "@reserva/shared/model/reserva";
-import {Observable} from "rxjs";
+import {HttpService} from '@core-service/http.service';
+import {environment} from 'src/environments/environment';
+import {Reserva} from '@reserva/shared/model/reserva';
+import {Observable} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ReservaService {
 
   constructor(protected http: HttpService) { }

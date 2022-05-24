@@ -4,9 +4,7 @@ import {environment} from 'src/environments/environment';
 import {Agenda} from '@agenda/shared/model/agenda';
 import {Observable} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AgendaService {
 
   constructor(protected http: HttpService) {

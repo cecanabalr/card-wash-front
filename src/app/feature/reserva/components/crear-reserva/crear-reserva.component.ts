@@ -1,13 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import {Reserva} from "@reserva/shared/model/reserva";
-import {Agenda} from "@agenda/shared/model/agenda";
-import {Servicio} from "@servicio/shared/model/servicio";
-import {ReservaService} from "@reserva/shared/service/reserva.service";
-import {
-  ListarAgendaReservaComponent
-} from "@reserva/components/crear-reserva/listar-agenda-reserva/listar-agenda-reserva.component";
-import {Router} from "@angular/router";
+import {Reserva} from '@reserva/shared/model/reserva';
+import {Agenda} from '@agenda/shared/model/agenda';
+import {Servicio} from '@servicio/shared/model/servicio';
+import {ReservaService} from '@reserva/shared/service/reserva.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -16,7 +13,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./crear-reserva.component.css']
 })
 export class CrearReservaComponent implements OnInit {
-  @ViewChild(ListarAgendaReservaComponent) hijo: ListarAgendaReservaComponent;
+
+  fecha: string;
   reservaForm: FormGroup;
   idAgenda = 0;
   idServicio = 0;
@@ -51,6 +49,6 @@ export class CrearReservaComponent implements OnInit {
   }
 
   onSearchDate(value: string) {
-    this.hijo.mostrarAgenda(value);
+    this.fecha = value;
   }
 }

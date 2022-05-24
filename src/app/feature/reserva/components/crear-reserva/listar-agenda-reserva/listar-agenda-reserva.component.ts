@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter, Input, } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input, OnChanges} from '@angular/core';
 import {AgendaService} from '@agenda/shared/service/agenda.service';
 import {Agenda} from '@agenda/shared/model/agenda';
 
@@ -7,7 +7,7 @@ import {Agenda} from '@agenda/shared/model/agenda';
   templateUrl: './listar-agenda-reserva.component.html',
   styleUrls: ['./listar-agenda-reserva.component.css']
 })
-export class ListarAgendaReservaComponent implements OnInit {
+export class ListarAgendaReservaComponent implements OnInit, OnChanges {
   @Input() childMessage: string;
   @Output() agendaEvento = new EventEmitter<number>();
   obtenerAgenda = 0;
@@ -16,6 +16,11 @@ export class ListarAgendaReservaComponent implements OnInit {
 
   constructor(protected agendaService: AgendaService) { }
 
+  ngOnChanges(): void {
+    if (this.childMessage){
+      this.mostrarAgenda(this.childMessage);
+    }
+  }
   ngOnInit(): void {}
   mostrarAgenda(fecha: string){
     this.agendaService.buscarPorFecha(fecha).subscribe(

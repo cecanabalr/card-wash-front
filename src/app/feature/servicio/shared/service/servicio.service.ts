@@ -4,9 +4,7 @@ import { environment } from 'src/environments/environment';
 import {Servicio} from '../model/servicio';
 import {Observable} from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ServicioService {
 
   constructor(protected http: HttpService) { }

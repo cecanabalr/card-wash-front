@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Agenda} from "@agenda/shared/model/agenda";
+import {Agenda} from '@agenda/shared/model/agenda';
 
 @Pipe({
   name: 'filtroAgenda'

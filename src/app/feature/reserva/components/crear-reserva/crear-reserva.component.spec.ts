@@ -11,15 +11,13 @@ import {of} from 'rxjs';
 import {
   ListarAgendaReservaComponent
 } from '@reserva/components/crear-reserva/listar-agenda-reserva/listar-agenda-reserva.component';
-import {FiltroAgendaPipe} from "@shared/pipe/filtro-agenda.pipe";
+import {FiltroAgendaPipe} from '@shared/pipe/filtro-agenda.pipe';
+import {AgendaService} from '@agenda/shared/service/agenda.service';
 
 describe('CrearReservaComponent', () => {
   let component: CrearReservaComponent;
   let fixture: ComponentFixture<CrearReservaComponent>;
   let reservaService: ReservaService;
-  const listarAgendaReservaComponent = jasmine.createSpyObj('ListarAgendaReservaComponent', [
-    'mostrarAgenda',
-  ]);
   beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
       declarations: [ CrearReservaComponent, ListarAgendaReservaComponent, FiltroAgendaPipe ],
@@ -32,7 +30,7 @@ describe('CrearReservaComponent', () => {
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [ReservaService, HttpService],
+      providers: [ReservaService, HttpService, AgendaService],
     })
     .compileComponents();
   }));
@@ -55,7 +53,7 @@ describe('CrearReservaComponent', () => {
     expect(component.reservaForm.valid).toBeFalsy();
   });
 
-  it('Registrando producto', () => {
+  it('Registrando reserva', () => {
     expect(component.reservaForm.valid).toBeFalsy();
     component.reservaForm.controls.nombre.setValue('carlos');
     component.reservaForm.controls.placa.setValue('AAA123');
@@ -76,10 +74,10 @@ describe('CrearReservaComponent', () => {
     component.obtenerAgenda(100);
     expect(component.idAgenda).toEqual(100);
   });
-  it('Obtener id de agenda', () => {
+
+  it('Enviar fecha a componente listar agenda reserva', () => {
     expect(component).toBeTruthy();
-    component.hijo = listarAgendaReservaComponent;
     component.onSearchDate('2022-05-20');
-    expect(component.hijo.mostrarAgenda).toHaveBeenCalled();
+    expect(component.fecha).toEqual('2022-05-20');
   });
 });

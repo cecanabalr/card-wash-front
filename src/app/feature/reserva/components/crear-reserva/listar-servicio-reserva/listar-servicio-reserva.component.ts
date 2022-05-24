@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import {ServicioService} from "@servicio/shared/service/servicio.service";
-import {Servicio} from "@servicio/shared/model/servicio";
+import {ServicioService} from '@servicio/shared/service/servicio.service';
+import {Servicio} from '@servicio/shared/model/servicio';
 
 @Component({
   selector: 'app-listar-servicio-reserva',

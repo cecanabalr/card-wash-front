@@ -4,7 +4,7 @@ import {
 } from '@angular/router/testing';
 import { BorrarProductoComponent } from './borrar-producto.component';
 import { CommonModule } from '@angular/common';
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('BorrarProductoComponent', () => {
   let component: BorrarProductoComponent;

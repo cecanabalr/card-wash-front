@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {Servicio} from "@servicio/shared/model/servicio";
+import {Servicio} from '@servicio/shared/model/servicio';
 
 
 @Pipe({

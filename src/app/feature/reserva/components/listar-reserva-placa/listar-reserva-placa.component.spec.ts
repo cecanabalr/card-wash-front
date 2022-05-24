@@ -87,7 +87,7 @@ describe('ListarReservaPlacaComponent', () => {
 
   it('should listar todos las reservas por filtro',  () => {
     expect(component).toBeTruthy();
-    component.onSearchReserva('AAA123')
+    component.onSearchReserva('AAA123');
     expect(component.search).toEqual('AAA123');
   });
 });
