@@ -8,14 +8,21 @@ import {HttpService} from '@core-service/http.service';
 import {ReservaService} from '@reserva/shared/service/reserva.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {of} from 'rxjs';
+import {
+  ListarAgendaReservaComponent
+} from '@reserva/components/crear-reserva/listar-agenda-reserva/listar-agenda-reserva.component';
+import {FiltroAgendaPipe} from "@shared/pipe/filtro-agenda.pipe";
 
 describe('CrearReservaComponent', () => {
   let component: CrearReservaComponent;
   let fixture: ComponentFixture<CrearReservaComponent>;
   let reservaService: ReservaService;
+  const listarAgendaReservaComponent = jasmine.createSpyObj('ListarAgendaReservaComponent', [
+    'mostrarAgenda',
+  ]);
   beforeEach(waitForAsync( () => {
     TestBed.configureTestingModule({
-      declarations: [ CrearReservaComponent ],
+      declarations: [ CrearReservaComponent, ListarAgendaReservaComponent, FiltroAgendaPipe ],
       imports: [
         CommonModule,
         HttpClientTestingModule,
@@ -68,5 +75,11 @@ describe('CrearReservaComponent', () => {
     expect(component).toBeTruthy();
     component.obtenerAgenda(100);
     expect(component.idAgenda).toEqual(100);
+  });
+  it('Obtener id de agenda', () => {
+    expect(component).toBeTruthy();
+    component.hijo = listarAgendaReservaComponent;
+    component.onSearchDate('2022-05-20');
+    expect(component.hijo.mostrarAgenda).toHaveBeenCalled();
   });
 });

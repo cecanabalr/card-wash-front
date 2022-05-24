@@ -61,4 +61,9 @@ describe('ListarServiciosComponent', () => {
     component.prevPage();
     expect(component.page).toEqual(0);
   });
+  it('should listar todos los servicios primera pagina',  () => {
+    expect(component).toBeTruthy();
+    component.prevPage();
+    expect(component.page).toEqual(0);
+  });
 });

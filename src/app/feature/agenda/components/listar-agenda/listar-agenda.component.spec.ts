@@ -60,4 +60,9 @@ describe('ListarAgendaComponent', () => {
     component.prevPage();
     expect(component.page).toEqual(0);
   });
+  it('should listar todos las agendas primera pagina',  () => {
+    expect(component).toBeTruthy();
+    component.prevPage();
+    expect(component.page).toEqual(0);
+  });
 });
