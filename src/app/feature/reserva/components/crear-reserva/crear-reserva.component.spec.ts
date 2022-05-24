@@ -58,5 +58,15 @@ describe('CrearReservaComponent', () => {
     expect(component.idServicio).toEqual(0);
     expect(component.idAgenda).toEqual(0);
   });
+  it('Obtener id del servicio', () => {
+    expect(component).toBeTruthy();
+    component.obtenerServicio(2);
+    expect(component.idServicio).toEqual(2);
+  });
 
+  it('Obtener id de agenda', () => {
+    expect(component).toBeTruthy();
+    component.obtenerAgenda(100);
+    expect(component.idAgenda).toEqual(100);
+  });
 });

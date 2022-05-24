@@ -47,4 +47,17 @@ describe('ListarAgendaComponent', () => {
     component.ngOnInit();
     expect(component.agendas).toEqual([new Agenda(1, '2022-05-20', '2022-05-20')]);
   });
+
+  it('should listar todos las agendas de la pagina siguiente',  () => {
+    expect(component).toBeTruthy();
+    component.nextPage();
+    expect(component.page).toEqual(5);
+  });
+
+  it('should listar todos las agendas de la pagina anterior',  () => {
+    expect(component).toBeTruthy();
+    component.page = 5;
+    component.prevPage();
+    expect(component.page).toEqual(0);
+  });
 });

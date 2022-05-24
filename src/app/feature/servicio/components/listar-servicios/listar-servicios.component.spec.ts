@@ -49,4 +49,16 @@ describe('ListarServiciosComponent', () => {
     component.ngOnInit();
     expect(component.servicios).toEqual([new Servicio(1, 'lavada', 20000)]);
   });
+  it('should listar todos los servicios de la pagina siguiente',  () => {
+    expect(component).toBeTruthy();
+    component.nextPage();
+    expect(component.page).toEqual(5);
+  });
+
+  it('should listar todos los servicios de la pagina anterior',  () => {
+    expect(component).toBeTruthy();
+    component.page = 5;
+    component.prevPage();
+    expect(component.page).toEqual(0);
+  });
 });
