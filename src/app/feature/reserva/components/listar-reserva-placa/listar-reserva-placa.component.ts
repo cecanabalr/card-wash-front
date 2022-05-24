@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ReservaService} from "@reserva/shared/service/reserva.service";
-import {Reserva} from "@reserva/shared/model/reserva";
+import {ReservaService} from '@reserva/shared/service/reserva.service';
+import {Reserva} from '@reserva/shared/model/reserva';
 @Component({
   selector: 'app-listar-reserva-placa',
   templateUrl: './listar-reserva-placa.component.html',
@@ -25,13 +25,13 @@ export class ListarReservaPlacaComponent implements OnInit {
       this.buscarPorPlaca();
     }
   }
-  buscarPorPlaca(){
+  private buscarPorPlaca(){
     this.reservaService.buscarPorFecha(this.placa).subscribe( data =>
         this.reservas = data);
 
   }
-  buscarTodasLasReservas(){
-    this.reservaService.buscarTodasLasReservas().subscribe( data =>{
+  private buscarTodasLasReservas(){
+    this.reservaService.buscarTodasLasReservas().subscribe( data => {
       console.log(data);
       this.reservas = data;
     });
