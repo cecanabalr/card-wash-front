@@ -53,11 +53,10 @@ describe('CrearReservaComponent', () => {
     component.reservaForm.controls.nombre.setValue('carlos');
     component.reservaForm.controls.placa.setValue('AAA123');
     expect(component.reservaForm.valid).toBeTruthy();
-
     component.enviar();
 
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
+    expect(component.idServicio).toEqual(0);
+    expect(component.idAgenda).toEqual(0);
   });
 
 });

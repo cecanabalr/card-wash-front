@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Servicio} from "@servicio/shared/model/servicio";
-import {ServicioService} from "@servicio/shared/service/servicio.service";
+import {Servicio} from '@servicio/shared/model/servicio';
+import {ServicioService} from '@servicio/shared/service/servicio.service';
 
 @Component({
   selector: 'app-listar-servicios',
@@ -14,7 +14,7 @@ export class ListarServiciosComponent implements OnInit {
   constructor(protected servicioService: ServicioService ) { }
 
   ngOnInit(): void {
-    this.listarServicios()
+    this.listarServicios();
   }
 
   listarServicios(){

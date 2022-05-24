@@ -46,7 +46,7 @@ export class CrearReservaComponent implements OnInit {
       new Agenda(this.idAgenda, null, null),
       new Servicio(this.idServicio, null, null), null, null))
       .subscribe(() => {
-          this.route.navigateByUrl('/reserva/listar/' + this.reservaForm.value.placa);
+          this.route.navigate(['/reserva/listar/' + this.reservaForm.value.placa]);
       });
   }
 

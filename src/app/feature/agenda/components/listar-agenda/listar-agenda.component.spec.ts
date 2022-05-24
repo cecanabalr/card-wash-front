@@ -1,19 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
 import { ListarAgendaComponent } from './listar-agenda.component';
-import {CommonModule} from "@angular/common";
-import {RouterTestingModule} from "@angular/router/testing";
-import {AgendaService} from "@agenda/shared/service/agenda.service";
-import {HttpService} from "@core-service/http.service";
-import {SharedModule} from "../../../../shared/shared.module";
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import {CommonModule} from '@angular/common';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AgendaService} from '@agenda/shared/service/agenda.service';
+import {HttpService} from '@core-service/http.service';
+import {SharedModule} from '../../../../shared/shared.module';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {of} from 'rxjs';
+import {Agenda} from '../../shared/model/agenda';
 
 describe('ListarAgendaComponent', () => {
   let component: ListarAgendaComponent;
   let fixture: ComponentFixture<ListarAgendaComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  let agendaService: AgendaService;
+  beforeEach(waitForAsync( () => {
+    TestBed.configureTestingModule({
       declarations: [ ListarAgendaComponent ],
       imports: [
         CommonModule,
@@ -24,15 +26,25 @@ describe('ListarAgendaComponent', () => {
       providers: [AgendaService, HttpService],
     })
     .compileComponents();
-  });
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ListarAgendaComponent);
     component = fixture.componentInstance;
+    agendaService = TestBed.inject(AgendaService);
+    spyOn(agendaService, 'listar').and.returnValue(
+      of([new Agenda(1, '2022-05-20', '2022-05-20')])
+    );
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should listar todos las agendas',  () => {
+    expect(component).toBeTruthy();
+    component.ngOnInit();
+    expect(component.agendas).toEqual([new Agenda(1, '2022-05-20', '2022-05-20')]);
   });
 });

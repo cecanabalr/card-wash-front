@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Agenda} from "@agenda/shared/model/agenda";
-import {AgendaService} from "@agenda/shared/service/agenda.service";
+import {Agenda} from '@agenda/shared/model/agenda';
+import {AgendaService} from '@agenda/shared/service/agenda.service';
 
 @Component({
   selector: 'app-listar-agenda',
@@ -13,6 +13,10 @@ export class ListarAgendaComponent implements OnInit {
   constructor(protected agendaService: AgendaService) { }
 
   ngOnInit(): void {
+    this.listarAgendas();
+  }
+
+  private listarAgendas() {
     this.agendaService.listar().subscribe(data => {
       this.agendas = data;
     });
