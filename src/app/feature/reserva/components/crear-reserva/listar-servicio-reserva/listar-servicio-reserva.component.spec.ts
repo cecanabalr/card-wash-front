@@ -45,4 +45,11 @@ describe('ListarServicioReservaComponent', () => {
     component.ngOnInit();
     expect(component.servicios).toEqual([new Servicio(1, 'lavada', 20000)]);
   });
+
+  it('should enviar mensaje al padre',  () => {
+    spyOn(component.servicioEvento, 'emit');
+    expect(component).toBeTruthy();
+    component.obtenerServicio();
+    expect(component.servicioEvento.emit).toHaveBeenCalled();
+  });
 });

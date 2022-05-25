@@ -47,6 +47,13 @@ describe('ListarAgendaReservaComponent', () => {
     expect(component.agendas).toEqual([new Agenda(1, '2022-05-20', '2022-05-20')]);
   });
 
+  it('should listar todos las agendas por fecha onchanges',  () => {
+    component.childMessage = '2022-05-20';
+    expect(component).toBeTruthy();
+    component.ngOnChanges();
+    expect(component.agendas).toEqual([new Agenda(1, '2022-05-20', '2022-05-20')]);
+  });
+
   it('should listar todos las  reservas agendas de la pagina siguiente',  () => {
     expect(component).toBeTruthy();
     component.nextPage();
@@ -63,5 +70,12 @@ describe('ListarAgendaReservaComponent', () => {
     expect(component).toBeTruthy();
     component.prevPage();
     expect(component.page).toEqual(0);
+  });
+
+  it('should enviar mensaje al padre',  () => {
+    spyOn(component.agendaEvento, 'emit');
+    expect(component).toBeTruthy();
+    component.capturar();
+    expect(component.agendaEvento.emit).toHaveBeenCalled();
   });
 });
